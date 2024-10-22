@@ -15,8 +15,18 @@
     }
     @frame footer_frame {           /* Static frame */
         -pdf-frame-content: footer_content;
-        left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        left: 0pt; width: 582pt; top: 752pt; height: 20pt;
     }
+
+}
+
+#footer_content {
+    text-align: right;
+    font-size: 8pt;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-top: 2px solid #dba039;
+    padding-top: 6px;
 }
 
 body {
@@ -25,7 +35,6 @@ body {
     color: #000000;
     font-family: 'Times New Roman', Times, serif;
     counter-reset: page; /* Reset page counter */
-
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -20,51 +20,54 @@ Your Email}
 \end{abstract}
 
 \begin{IEEEkeywords}
-    CLI, shell, C, Windows, command history, directory navigation, file listing
+    CLI, Shell, C, Windows, Command History, Directory Navigation, File Listing
 \end{IEEEkeywords}
 
 \section{Introduction}
-This document presents a report on the implementation of a simple command-line interface (CLI) shell in C for the Windows operating system. The shell provides basic functionality such as command history, directory navigation, file listing, and the execution of simple commands like cd, ls, pwd, echo, and hist. The primary objective of this project is to familiarize oneself with the fundamental concepts of shell programming and interacting with the Windows API. 
+This document details the implementation of a command-line interface (CLI) shell in C for Windows, providing functionality similar to popular Unix/Linux shells like Bash. This shell enables users to execute basic commands and interact with the Windows operating system through a terminal interface.
 
 \section{Program Structure and Components}
 \subsection{Libraries and Macros}
-The program utilizes various standard C libraries and defines several macros for enhanced code organization. The libraries included are:
+The program utilizes various standard libraries:
 
 \begin{itemize}
-\item \texttt{stdio.h}: Provides standard input/output functions.
-\item \texttt{stdlib.h}: Offers standard library functions such as \texttt{getenv()} and \texttt{strtok()}.
-\item \texttt{string.h}: Provides functions for string manipulation, including \texttt{strncpy()} and \texttt{strcmp()}.
-\item \texttt{windows.h}: Contains Windows-specific system calls, like \texttt{GetComputerName()} and \texttt{FindFirstFile()}.
-\item \texttt{direct.h}: Includes directory-related functions such as \texttt{\_getcwd()} and \texttt{\_chdir()}.
-\item \texttt{limits.h}: Defines constants like \texttt{PATH\_MAX} (maximum allowable path length).
+\item \texttt{stdio.h}: Standard input/output functions.
+\item \texttt{stdlib.h}: Standard library functions like \texttt{getenv()} and \texttt{strtok()}.
+\item \texttt{string.h}: Functions for string manipulation (\texttt{strncpy()}, \texttt{strcmp()}).
+\item \texttt{windows.h}: Windows-specific system calls (\texttt{GetComputerName()}, \texttt{FindFirstFile()}).
+\item \texttt{direct.h}: For directory-related functions like \texttt{\_getcwd()} and \texttt{\_chdir()}.
+\item \texttt{limits.h}: For \texttt{PATH\_MAX} (maximum allowable path length).
 \end{itemize}
 
-The program defines the following macros:
+The following macros are defined:
 
 \begin{itemize}
-\item \texttt{MAX\_INPUT}: Sets the maximum size for user input (1024 characters).
-\item \texttt{MAX\_ARGS}: Determines the maximum number of command arguments (64).
-\item \texttt{MAX\_HISTORY}: Defines the size of the command history buffer (10).
+\item \texttt{MAX\_INPUT}: Defines the maximum size for input (1024 characters).
+\item \texttt{MAX\_ARGS}: Sets the maximum number of command arguments (64).
+\item \texttt{MAX\_HISTORY}: Sets the size of the command history buffer (10).
 \end{itemize}
 
 \subsection{Command History Management}
-The program maintains a history of the last 10 commands executed by the user. This functionality is implemented using global variables and functions:
+The shell maintains a history of the last 10 commands executed by the user.
+
+Global Variables:
 
 \begin{itemize}
-\item \textbf{Global Variables:}
-\begin{itemize}
-\item \texttt{history[MAX\_HISTORY][MAX\_INPUT]}:  A 2-dimensional array storing the history of the last 10 commands.
-\item \texttt{history\_count}:  Keeps track of the current number of commands in the history.
+\item \texttt{history[MAX\_HISTORY][MAX\_INPUT]}: Stores the history of the last 10 commands.
+\item \texttt{history\_count}: Tracks the current number of commands in the history.
 \end{itemize}
-\item \textbf{Functions:}
+
+Functions:
+
 \begin{itemize}
 \item \texttt{add\_to\_history(const char *command)}: Adds the latest command to the history. If the history buffer is full, the oldest command is removed, and the new command is added.
 \item \texttt{show\_history()}: Displays the command history to the user.
 \end{itemize}
-\end{itemize}
 
 \subsection{Directory Navigation}
-The shell provides functionality for changing and printing the current directory. This is accomplished through the following functions:
+The program provides functionality to change and print the current directory.
+
+Functions:
 
 \begin{itemize}
 \item \texttt{change\_directory(char *path, char *prev\_dir)}: Changes the current working directory. If no path is provided or the user specifies "~", it defaults to the user's home directory. If the user enters "-", the program switches to the previous directory.
@@ -72,19 +75,15 @@ The shell provides functionality for changing and printing the current directory
 \end{itemize}
 
 \subsection{File Listing}
-The \texttt{list\_files()} function lists the files in the current directory using Windows API functions. It leverages \texttt{FindFirstFile()} and \texttt{FindNextFile()} to traverse files and directories in the current location.
+\texttt{list\_files()}: Lists the files in the current directory using Windows API functions. It leverages \texttt{FindFirstFile()} and \texttt{FindNextFile()} to traverse files and directories in the current location.
 
 \subsection{Command Parsing and Execution}
-The shell reads user input, tokenizes the command, and executes appropriate actions. The input parsing process is as follows:
+The shell reads user input, tokenizes the command, and executes appropriate actions.
 
-\begin{enumerate}
-\item The shell continuously waits for user input via \texttt{fgets()}.
-\item The input is split into tokens using \texttt{strtok()}, and each token is stored in the \texttt{args} array.
-\item Commands are matched using \texttt{strcmp()} and executed based on a set of predefined commands.
-\end{enumerate}
+\subsubsection{Input Parsing}
+The shell continuously waits for user input via \texttt{fgets()}. The input is split into tokens using \texttt{strtok()}, and each token is stored in the \texttt{args} array. Commands are matched using \texttt{strcmp()} and executed based on a set of predefined commands.
 
-The following commands are supported:
-
+\subsubsection{Supported Commands}
 \begin{itemize}
 \item \texttt{cd}: Changes the current directory. Handles special cases like \texttt{cd -} (switch to the previous directory) and \texttt{cd ~} (switch to the home directory).
 \item \texttt{ls}: Lists files in the current directory.
@@ -95,31 +94,26 @@ The following commands are supported:
 \end{itemize}
 
 \subsection{Command Execution Workflow}
-The command execution workflow is as follows:
+\subsubsection{Prompt Display}
+The shell prints a prompt in the format \texttt{[username@hostname cwd]\$} where:
 
-\begin{enumerate}
-\item \textbf{Prompt Display}: The shell prints a prompt in the format \texttt{[username@hostname cwd]\$} where:
 \begin{itemize}
 \item \texttt{username}: Retrieved from the environment variable \texttt{USERNAME}.
 \item \texttt{hostname}: Obtained using the Windows function \texttt{GetComputerName()}.
 \item \texttt{cwd}: The current working directory, fetched using \texttt{\_getcwd()}.
 \end{itemize}
-\item \textbf{Input Handling}:
-\begin{itemize}
-\item The shell reads user input and processes it with \texttt{fgets()}.
-\item If the command is not empty, it is added to the history using \texttt{add\_to\_history()}.
-\end{itemize}
-\item \textbf{Command Execution}:
-\begin{itemize}
-\item The shell tokenizes the input into commands and arguments.
-\item It checks for each supported command (cd, ls, pwd, echo, etc.) and invokes the corresponding function.
-\item If an unsupported command is entered, the shell prints an error message.
-\end{itemize}
-\item \textbf{Looping}: The program continuously loops until the user types \texttt{exit}.
-\end{enumerate}
+
+\subsubsection{Input Handling}
+The shell reads user input and processes it with \texttt{fgets()}. If the command is not empty, it is added to the history using \texttt{add\_to\_history()}.
+
+\subsubsection{Command Execution}
+The shell tokenizes the input into commands and arguments. It checks for each supported command (\texttt{cd}, \texttt{ls}, \texttt{pwd}, \texttt{echo}, etc.) and invokes the corresponding function. If an unsupported command is entered, the shell prints an error message.
+
+\subsubsection{Looping}
+The program continuously loops until the user types \texttt{exit}.
 
 \section{Error Handling}
-The shell incorporates basic error handling mechanisms to ensure robust operation. It handles errors such as:
+The shell performs basic error handling:
 
 \begin{itemize}
 \item If \texttt{getcwd()} or \texttt{chdir()} fails, it prints an appropriate error message.
@@ -131,11 +125,15 @@ The shell incorporates basic error handling mechanisms to ensure robust operatio
 \begin{itemize}
 \item \texttt{change\_directory(char *path, char *prev\_dir)}: Handles changing directories and supports navigating to the home directory (~) and switching to the previous directory (-).
 \item \texttt{list\_files()}: Uses Windows API functions to list files and directories in the current location.
-\item \texttt{echo\_command(char *input)}: This function prints the user’s input to the terminal, implementing an echo command.
+\item \texttt{echo\_command(char *input)}: This function prints the user's input to the terminal, implementing an echo command.
 \end{itemize}
 
 \section{Conclusion}
-This report has presented a simple command-line shell implemented in C for the Windows operating system. The shell successfully integrates essential features like command history, directory navigation, file listing, and the execution of basic commands. The use of Windows API functions enables interaction with the file system, while standard C functions handle input/output and string manipulation.
+This program demonstrates how a simple command-line shell can be implemented in C on a Windows system. It includes key features like command history, directory navigation, file listing, and the ability to execute basic commands. The use of Windows API functions enables interaction with the file system, while standard C functions handle input/output and string manipulation.
 
-The shell could be further enhanced by adding support for more commands and features such as piping, file redirection, or job control to make it more powerful and versatile.
+The shell could be further extended by adding support for more commands and features like piping, file redirection, or job control to make it more powerful.
+
+\bibliographystyle{IEEEtran}  % IEEE bibliography style
+\bibliography{references}       % Include your bibliography file (references.bib)
+
 \end{document}

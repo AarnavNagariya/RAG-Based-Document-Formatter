@@ -8,7 +8,7 @@ This is a simple document formatter that takes a text and converts it into a bea
 - [x] Customized Text Genration
 - [x] Text Formatting
 - [x] Markdown to PDF
-- [ ] Aesthetic Styles
+- [ ] Aesthetic Styles x10
 - [x] Research Paper Style
 - [x] Background Color
 - [ ] Borders - Page Border
