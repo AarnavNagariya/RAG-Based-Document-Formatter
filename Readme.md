@@ -10,7 +10,7 @@ This is a simple document formatter that takes a text and converts it into a bea
 - [x] Markdown to PDF
 - [ ] Aesthetic Styles
 - [x] Research Paper Style
-- [ ] Background Color
+- [x] Background Color
 - [ ] Borders - Page Border
 - [x] Page Numbering
 - [ ] Table Formatting (Needs to be checked)
