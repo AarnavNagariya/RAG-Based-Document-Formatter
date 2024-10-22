@@ -9,10 +9,10 @@ This is a simple document formatter that takes a text and converts it into a bea
 - [x] Text Formatting
 - [x] Markdown to PDF
 - [ ] Aesthetic Styles
-- [ ] Research Paper Style
+- [x] Research Paper Style
 - [ ] Background Color
 - [ ] Borders - Page Border
-- [ ] Page Numbering
+- [x] Page Numbering
 - [ ] Table Formatting (Needs to be checked)
 
 
@@ -20,6 +20,6 @@ This is a simple document formatter that takes a text and converts it into a bea
 - [ ] GUI
 - [ ] Interface
 - [ ] Mobile Interface
-- [ ] Latex Conversion
+- [x] Latex Conversion
 - [ ] Word Document Conversion
 - [ ] PPT Conversion
