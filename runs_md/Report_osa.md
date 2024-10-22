@@ -1,4 +1,4 @@
-##  Command-Line Interface (CLI) Shell Implementation in C
+#  Command-Line Interface (CLI) Shell Implementation in C
 
 ### Index
 
