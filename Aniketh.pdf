@@ -47,7 +47,11 @@ endobj
 endobj
 8 0 obj
 <<
+<<<<<<< HEAD
 /Author () /CreationDate (D:20241022075747+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20241022075747+05'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
+=======
+/Author () /CreationDate (D:20241022201655+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20241022201655+05'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
+>>>>>>> 3162a8f5b5154a985c4b65fc3d7e85c5c1a49214
   /Subject () /Title () /Trapped /False
 >>
 endobj
@@ -218,7 +222,11 @@ xref
 trailer
 <<
 /ID 
+<<<<<<< HEAD
 [<fa19304027729a94b28c3563d1b68fd3><fa19304027729a94b28c3563d1b68fd3>]
+=======
+[<2e270270a1716f6116e48daafe90dfa7><2e270270a1716f6116e48daafe90dfa7>]
+>>>>>>> 3162a8f5b5154a985c4b65fc3d7e85c5c1a49214
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
 /Info 8 0 R
