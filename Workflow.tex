@@ -1,0 +1,60 @@
+\documentclass{article}
+\title{Workflow for VR-Phore}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\section{Pre-tasks}
+
+Download the APKs onto smartphones (image resolution improves with high-quality devices; ensure the Display Mobile (DM) fits securely into the VRHMD slot). Prepare the controller and application setup.
+
+\section{Clinical Tasks}
+
+\subsection{By Clinician}
+
+\begin{itemize}
+\item Select the number of slides for each test (SMP, Fusion, and Stereopsis).
+\item Choose the number of macular or peripheral test slides.
+\item (Version 2): A set of slides can be shown for clinicians to select for each test.
+\item Measure IPD:
+    \begin{itemize}
+        \item Method 1: Use standard clinical methods (e.g., scale).
+        \item Method 2: Adjust the lens in the VR HMD (not usually optimal if directly done by a strabismus patient).
+        \item A rough way to measure IPD would be to set the patient to look straight and check if the images are centered (similar to a synoptophore). Then move the slides equally apart or close together as in convergence/divergence sections.
+    \end{itemize}
+\item Calibration -- Center the images on each eye's display. Usually done by a person without deviation or phoria, who wears the HMD to check if the default-centered images are fused.
+\end{itemize}
+
+\subsection{Patient Instructions}
+
+The patient is given instructions to:
+
+\begin{itemize}
+\item Operate the controller -- use the scroll action to move images and double-click anywhere on the screen to indicate alignment completion.
+\item Move images using one (single image) or two thumbs (both images simultaneously).
+\item Perceive fusion, for example, recognizing a lion inside a cage or seeing a complete mouse or cat.
+\end{itemize}
+
+\subsection{Fitting the VRHMD}
+
+The VRHMD is placed gently on the patient's head while they are seated, with the straps tightened if needed. A few sample slides are shown, and the child is asked:
+
+\begin{itemize}
+\item Do you see images?
+\item Are they near the center or away?
+\item Close one eye and describe the image (repeat with the other eye).
+\item Is the display too bright?
+\item Try using the controllers.
+\end{itemize}
+
+The clinician enters the patient's details on the controller (or possibly the display mobile). The clinician can select whether the left or right eye image is fixed, or if both images will move. The SMP/Fusion and Stereopsis sets are shown in a predefined or selectable order (Version 2 of the application allows the clinician to choose the order). Position and angle data from the calibrated center are logged, with a 6-second gap between slides.
+
+\subsection{Additional Control Options}
+
+The clinician can select the axis of movement, such as moving linearly (one-axis) or in a plane (two-axis). The patient can rotate the image perpendicularly on one axis, enabling measurement of torsional values. For example, swiping left or right moves the image linearly, while upward and downward swipes rotate it clockwise and counterclockwise, respectively. Convergence ranges can also be measured, including degrees to which the participant can achieve fusion.
+
+\section{Post-Task}
+
+Once the deck is complete, the HMD and controller are gently removed from the patient. The clinician can check a CSV file, which displays the angle values for each slide set/test.
+\end{document}
