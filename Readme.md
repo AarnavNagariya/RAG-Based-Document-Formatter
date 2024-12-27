@@ -11,7 +11,7 @@ This is a simple document formatter that takes a text and converts it into a bea
 - [ ] Aesthetic Styles x10
 - [x] Research Paper Style
 - [x] Background Color
-- [ ] Borders - Page Border
+- [x] Borders - Page Border
 - [x] Page Numbering
 - [ ] Table Formatting (Needs to be checked)
 
@@ -21,5 +21,5 @@ This is a simple document formatter that takes a text and converts it into a bea
 - [ ] Interface
 - [ ] Mobile Interface
 - [x] Latex Conversion
-- [ ] Word Document Conversion
-- [ ] PPT Conversion
+- [x] Word Document Conversion
+- [x] PPT Conversion

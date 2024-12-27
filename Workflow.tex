@@ -1,60 +1,326 @@
 \documentclass{article}
-\title{Workflow for VR-Phore}
-\author{}
-\date{}
+\usepackage{graphicx}
+ \usepackage{url} 
+
+\title{\LARGE \bf
+Clinical Validation of Binocular Anomalies in Children Using VR-PHORE
+}
+
+
+\author{Aarnav Nagariya, Harshavardhan P, Pragati Gupta, Gisbi Susan Shaji, Harshit Aggrawal, Kavita Vemuri% <-        
+}
+% remember in the final paper we have to add Dr. Raman in the paper as author
+
 \begin{document}
+
+
+
 \maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
 
-\section{Pre-tasks}
 
-Download the APKs onto smartphones (image resolution improves with high-quality devices; ensure the Display Mobile (DM) fits securely into the VRHMD slot). Prepare the controller and application setup.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
 
-\section{Clinical Tasks}
+Binocular anomalies are prevalent among individuals, particularly children, and early detection is crucial for effective treatment. Traditional diagnostic tools like the synoptophore, while effective, pose challenges due to cost and specialized training requirements, particularly for smaller clinics in rural areas like those in India. In this study, we introduce a novel VR-based diagnostic system, VR-Phore, designed to diagnose binocular anomalies using similar criteria to the synoptophore. We compared data obtained from both the synoptophore and VR-Phore to assess binocular anomalies in children aged 6-15 years, demonstrating the potential of VR-Phore as an accessible and effective alternative for diagnosing these visual conditions.
 
-\subsection{By Clinician}
+\end{abstract}
 
-\begin{itemize}
-\item Select the number of slides for each test (SMP, Fusion, and Stereopsis).
-\item Choose the number of macular or peripheral test slides.
-\item (Version 2): A set of slides can be shown for clinicians to select for each test.
-\item Measure IPD:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Binocular vision is the process by which the brain combines and integrates the separate images received from each eye into a single, cohesive perception. This seamless integration depends on three essential aspects: the anatomy of the visual system, the motor coordination of the eyes, and the sensory processing in the brain. Structurally, the eyes and visual pathways must be aligned and healthy to ensure that each eye can capture and transmit its unique view without interference. The motor system, responsible for synchronizing eye movements, allows both eyes to focus accurately on the same object. Meanwhile, the sensory system in the brain blends the two distinct monocular images into a unified, three-dimensional view. Disruptions in any of these areas whether anatomical, motor, or sensory can lead to visual strain, discomfort, or even the inability to achieve a clear, unified binocular image. This condition is known as binocular vision anomaly. \cite{Pickwell's Binocular Vision Anomalies}
+
+Strabismus is a major type of binocular vision anomaly in individuals, characterized by a misalignment of the eyes. This condition disrupts binocularity—the brain’s ability to merge visual information from both eyes into a single image—leading to deficient depth perception and, in some cases, double vision. Strabismus can be primary, or it may result from poor vision in one eye, uncorrected refractive errors, or, less commonly, lesions affecting the oculomotor, trochlear, or abducens nerves, as well as higher neurological pathways \cite{Test for detecting Strabismus}. Rarely, developmental abnormalities or traumatic injury to the extraocular muscles contribute to strabismus. Importantly, strabismus poses a significant risk for amblyopia, or "lazy eye," especially during the sensitive period of visual development in early childhood.  Over time, untreated strabismus may lead to postural disorders and torticollis, accompanied by spinal pain, particularly in the cervical region, which can contribute to further long-term orthopedic complications, impacting quality of life and daily functioning \cite{strabismus children}. Research indicates that strabismus is associated with increased odds of mental health issues in children, including ADHD and anxiety disorders \cite{Pediatric}. Early diagnosis and intervention are therefore crucial to correcting strabismus and preventing further visual, physical, and psychological complications. Early diagnosis and intervention are therefore crucial to correcting this anomaly and preventing further visual impairment.
+
+The Hirschberg Test is a simple clinical method used to assess eye alignment by shining a light into the patient's eyes and observing the resulting corneal reflection \cite{1}\cite{2}. This reflection, often referred to as the corneal light reflex, is actually not from the cornea's surface; rather, it represents Purkinje's image, a virtual image formed behind the pupil. While useful, the Hirschberg test has limitations as it primarily detects visible (aesthetic) strabismus. In some cases, an apparent misalignment, known as pseudostrabismus, can occur when the pupillary axes are angled relative to each other but the visual axes remain properly aligned \cite{1}. Conversely, true strabismus may sometimes be obscured by an offset Kappa angle, where the angle's opposite sign creates the illusion of correct binocular alignment, despite an underlying misalignment \cite{3}.
+
+The Krimsky Test is a refined variation of the Hirschberg Test, offering a more precise measurement of ocular deviation. In this test, prisms are placed in front of the non-deviating eye, with the prism’s apex directed toward the eye’s misalignment. The prism power is gradually increased until the corneal reflex shifts centrally within the pupil of each eye, indicating alignment. The strength of the prism needed to center the corneal reflex corresponds to the angle of deviation \cite{4,5}. The Krimsky Test is particularly useful in cases where patients cannot actively participate in more complex tests, such as with young children, individuals with sensory strabismus, or those whose visual acuity is significantly reduced (worse than 20/400) \cite{6,7}. This test helps provide an objective measure of strabismus, facilitating diagnosis and guiding treatment options in challenging cases.
+
+Both the Hirschberg and Krimsky Tests rely on corneal reflections to assess eye alignment, but these reflections can be influenced by anatomical variations, such as asymmetric foveas, which may lead to a misdiagnosis of strabismus \cite{13}. Additionally, the angle kappa, the angular difference between the visual and optical axes, can impact the results, potentially causing a false diagnosis of exotropia (outward turning of the eye) or esotropia (inward turning of the eye). These tests are generally optimized for near fixation, and their accuracy in measuring strabismic deviation at a distance remains less well-defined. Near fixation testing can sometimes introduce errors when assessing strabismic angles, as it may induce accommodation and convergence of the eyes, even in cases of sensory strabismus, where accommodation is typically not a factor \cite{14}.
+
+The Cover Test is another key method for detecting strabismus, involving the covering of one eye while observing the movement of the uncovered eye; if the uncovered eye shifts to refocus, it indicates misalignment \cite{8}. Recognized as the reference standard for strabismus detection \cite{8}, the test has several variations. The Cover-Uncover Test detects manifest strabismus by observing corrective movement when the eye is uncovered \cite{8}. The Alternate Cover Test reveals latent strabismus by disrupting binocular fusion through alternating cover. The Simultaneous Prism Cover Test and Prism Alternate Cover Test quantify the degree of both manifest and latent strabismus using prisms. These variations enhance diagnostic accuracy, helping to define the type and extent of misalignment.
+
+While the cover test remains the gold standard for detecting strabismus, it is still subject to examiner bias and is limited as a standalone tool for amblyopia screening, as it does not identify refractive errors \cite{8}. The prism cover test, a variation that quantifies the degree of deviation, also has limitations due to its reliance on the examiner’s ability to cover the patient’s eye, hold the prism bar, observe eye movements, and correct posture simultaneously \cite{15}. Factors such as the examiner’s experience, patient cooperation, and reflections from glasses or prism bars can further influence its accuracy. Additionally, accuracy tends to decrease for large deviations due to the variable resolution of prism bars \cite{15,16}.
+
+The Maddox Rod Test is another tool for assessing ocular alignment; it involves placing lenses that refract a point of light into a line image in front of each eye, with the patient describing the orientation of the lines, helping to identify deviations \cite{9}. For measuring cyclodeviation specifically, the Double Maddox Rod (DMR) Test is widely used in clinical settings. As a subjective test, it provides valuable information on rotational misalignments by allowing patients to align the line images until they appear parallel, offering a reliable assessment of torsional deviations. But these tests are very subjective, meaning that the results depend on the patient's ability to accurately report what they see \cite{9}.
+
+
+The Synoptophore has long been the standard tool in orthoptic management for diagnosing strabismus and other ocular motility disorders. It enables detailed assessment of binocular function and provides precise measurements \cite{Technique for Measuring Strabismus with Synoptophore}. This test involves placing two distinct images (such as a lion and a cage) into the slots of the instrument, then aligning the tubes in parallel with the horizontal scale set to 0 degrees. The patient is asked to focus through the tubes while the operator alternates the illumination for each transparency \cite{18}. When the visual axes of both eyes are parallel, no distortion occurs, and the eyes remain steady as focus shifts from one eye to the other with each illumination change. However, if a deviation is present—whether inward or outward—the deviating eye will make a compensatory movement in the opposite direction to refocus each time its corresponding image is illuminated \cite{18,19,20}. While the synoptophore offers precise measurements for strabismus, it has significant limitations. The device is complex and challenging for non-specialists to operate, lacks portability, and is unsuitable for use with uncooperative patients \cite{21}. Additionally, the synoptophore is costly, rendering it unaffordable for smaller clinics, particularly in rural areas of India. This financial barrier limits access to essential strabismus assessment tools, hindering timely diagnosis and treatment for patients who may benefit from them.
+
+The limitations of existing tests underscore the need for this research, which explores an alternative method for binocular vision anomaly testing using virtual reality (VR). Over the past few decades, virtual reality (VR) has advanced considerably, becoming a versatile tool for both personal and professional applications. As technology has progressed, VR systems have become more accessible and affordable, removing cost as a primary barrier to practical, widespread use. \cite{vrhealth}. VR devices show significant promise as tools for both measuring and treating binocular vision anomalies by delivering unique visual content to each eye simultaneously, effectively functioning as advanced synoptophores. This technology enables the determination of the subjective angle of alignment, pinpointing where images in each eye align within the same visual direction \cite{Levi}. Moreover, VR devices can assess binocular fusion and suppression, offering insights into whether both eyes are working together or if one is being suppressed by the brain. They also allow for precise measurement of the luminance or contrast balance point, assessing the relative brightness or contrast that provides equal perceptual input from both eyes \cite{Levi}. Finally, VR devices effectively evaluate stereopsis, gauging the brain's capacity to perceive depth based on the slight differences in the images seen by each eye. 
+
+This research introduces VR-Phore, a virtual reality-based application designed to detect ocular deviations using the haploscopic principle, where each eye views a separate visual field within a unified physical space. The concept of VR-Phore was first proposed in \cite{vrphore} as a theoretical framework. It was only validated with synoptophore and adult non-strabismus subject set. In this study, we extend VR-Phore into a clinically applicable tool by measuring deviations related to fusion, simultaneous perception, and stereopsis in both children with normal binocular vision and those with binocular anomalies. Additionally, we validate VR-Phore’s accuracy by comparing its measurements with synoptophore readings, providing clinical evidence for its potential use in vision clinics.
+
+
+\section{Methodology}
+
+The VR-Phore system was developed using the Unity 3D game engine to simulate the functionality of a synoptophore for research purposes. Similar to the synoptophore, VR-Phore employs two independent cameras—one for each eye—in the virtual reality (VR) environment. Each eye is presented with a different slide during each trial, with one slide fixed directly in front of its corresponding camera and the other positioned randomly within the VR space. Participants interact with the VR environment using a controller or keyboard to manipulate the position of the randomly placed slide, aligning it with the stationary slide. Ideally, perfect alignment occurs when the participant positions the slide directly in front of the camera, resulting in a fully fused image. The deviation from this ideal position represents the angle at which the virtual image is perceived relative to the eye, providing a measurable indicator of binocular alignment within the VR simulation. This setup enables precise measurement and analysis of binocular alignment and interaction in virtual space, facilitating novel insights into visual perception and treatment approaches for binocular anomalies.
+
+
+\subsection{Slides}
+
+The slides were taken from synoptophore Slide Catalogue \cite{synslide}
+Each slide in the VR-Phore experiment consists of two distinct trials. In the first trial, the image presented to the right eye remains stationary while the participant manipulates the position of the image seen by the left eye. Conversely, in the second trial, the image for the left eye remains fixed while the participant adjusts the position of the image seen by the right eye. 
+
+The slides were selected in varying sizes to enable clinicians to evaluate binocular vision across different regions of the visual field. This variation in slide sizes helps provide a comprehensive assessment, ensuring a more thorough understanding of how binocular vision functions in diverse visual scenarios. Slides have to be chosen for 3 types of binocular vision which are fusion, simultaneous perception and stereopsis. Table 1 shows the slide used in our experiment:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Index} & \textbf{Condition} & \textbf{Slide Name} \\ \hline
+1 & Fusion & Black Cat \\ \hline
+2 & Fusion & Black Cat Fov \\ \hline
+3 & Simultaneous Perception & Cross \\ \hline
+4 & Simultaneous Perception & Cross Fov \\ \hline
+5 & Stereopsis & Bucket \\ \hline
+6 & Stereopsis & Kit \\ \hline
+\end{tabular}
+\caption{Slide Conditions and Names}
+\label{table:conditions}
+\end{table}
+
+In our study, we selected two types of slides to assess fusion and simultaneous perception: macular (greater than 5 degrees) and foveal (less than 5 degrees). We specifically excluded foveal slides from stereopsis evaluations, focusing instead on assessing depth perception. The data collected from these trials consisted of 12 measurement points (excluding one trial for task comprehension), referred to as the "12-pointer." Additionally, we designed trials with 24 and 48 measurement points, but due to time constraints, we primarily utilized the 12-pointer format for data collection. This approach allowed us to efficiently gather comprehensive data on binocular vision performance within a manageable timeframe, optimizing the balance between study objectives and practical considerations.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|l|l|c|c|c|}
+\hline
+\textbf{Sno.} & \textbf{Left Eye Stimuli} & \textbf{Right Eye Stimuli} & \textbf{Eye} & \textbf{MagDis} & \textbf{Degree} \\ \hline
+1 & BlackCat2 & BlackCat1 & Right & 0.314 & 3.866 \\ \hline
+2 & BlackCat2 & BlackCat1 & Left & 0.357 & 4.039 \\ \hline
+3 & BlackCat2\_fov & BlackCat1\_fov & Right & 0.255 & 2.982 \\ \hline
+4 & BlackCat2\_fov & BlackCat1\_fov & Left & 0.256 & 2.993 \\ \hline
+5 & cross2 & cross1 & Right & 0.112 & 1.278 \\ \hline
+6 & cross2 & cross1 & Left & 0.356 & 4.029 \\ \hline
+7 & cross2\_fov & cross1\_fov & Right & 0.144 & 1.618 \\ \hline
+8 & cross2\_fov & cross1\_fov & Left & 0.244 & 3.033 \\ \hline
+9 & bucket2 & bucket1 & Right & 0.231 & 2.759 \\ \hline
+10 & bucket2 & bucket1 & Left & 0.635 & 7.319 \\ \hline
+11 & kit2 & kit1 & Right & 2.563 & 31.96 \\ \hline
+12 & kit2 & kit1 & Left & 1.523 & 17.85 \\ \hline
+\end{tabular}
+\caption{A Sample data for each participant generated by VR-Phore}
+\label{table:example}
+\end{table}
+
+\subsection{Data extraction}
+
+A key distinction between the measurements obtained using the synoptophore and VR-Phore lies in their respective trial methodologies. In the synoptophore, participants have the flexibility to adjust both the left and right images simultaneously to achieve alignment. In contrast, VR-Phore maintains one image as a stationary reference while allowing participants to manipulate the position of the other image to achieve alignment with the fixed reference. While VR-Phore employs this specific setup, the principle of measuring binocular alignment by adjusting the relative position of the images remains consistent with the synoptophore, where one arm can also be fixed. This setup in VR-Phore facilitates the measurement of the degree of deviation of the moving image relative to the stationary image, providing a precise quantification of binocular alignment within the virtual environment.
+
+Table 2 represents the data of a participant in the VR-Phore experiment. Here are several key points to note:
     \begin{itemize}
-        \item Method 1: Use standard clinical methods (e.g., scale).
-        \item Method 2: Adjust the lens in the VR HMD (not usually optimal if directly done by a strabismus patient).
-        \item A rough way to measure IPD would be to set the patient to look straight and check if the images are centered (similar to a synoptophore). Then move the slides equally apart or close together as in convergence/divergence sections.
+        \item The first test number represents a trial test which is used to get participants familiar with the task. This will not be used for analysis purposes.
+        \item The \textbf{Left Eye Stimuli} and \textbf{Right Eye Stimuli} columns represent slides used from the synoptophore catalogue.
+        \item Tests 2-5 consist of Fusion slides (2 macular, 2 foveal).
+        \item Tests 6-9 consist of Simultaneous Perception slides (2 macular, 2 foveal).
+        \item Tests 10-13 consist of Stereopsis slides (4 macular).
+        \item The \textbf{Eye} column represents the eye in which movement is allowed. For example, when the eye column is \textbf{right}, it means the right eye slide is allowed to move while the left slide remains stationary as a reference slide.
+        \item The \textbf{MagDis} refers to the total magnitude of displacement.
+        \item The \textbf{Degree} column represents the degree of deviation of one eye with respect to the other.
+        \item Even though the movement is allowed in only the x,y axis, we are getting z-axis displacement because the image moves in a cylindrical way when the participant moves it in order to maintain a fixed distance from the person’s eye in the virtual world. This approach gives the participant the perception of moving in only 2 axes in the virtual world.
     \end{itemize}
-\item Calibration -- Center the images on each eye's display. Usually done by a person without deviation or phoria, who wears the HMD to check if the default-centered images are fused.
-\end{itemize}
 
-\subsection{Patient Instructions}
 
-The patient is given instructions to:
+\subsection{Controls}
+To facilitate slide movement within the VR environment, we initially evaluated different input methods, including a keyboard, mouse, and game controller. A pilot group of 10 participants was asked to manipulate the slides using each device. Reviews indicated that the controller was the most intuitive and comfortable option, as its joystick enabled precise alignment of the images with minimal effort. Based on these findings, participants subsequently used an Xbox controller to adjust slide positioning within the virtual space. This setup allowed for smooth, intuitive interaction with the VR environment, enabling precise image alignment through joystick manipulation, thus enhancing user accuracy and ease of use.
 
-\begin{itemize}
-\item Operate the controller -- use the scroll action to move images and double-click anywhere on the screen to indicate alignment completion.
-\item Move images using one (single image) or two thumbs (both images simultaneously).
-\item Perceive fusion, for example, recognizing a lion inside a cage or seeing a complete mouse or cat.
-\end{itemize}
 
-\subsection{Fitting the VRHMD}
+\section{Data Collection}
+\subsection{Hyderabad Government School}
+The study was conducted at a government school with participants specifically selected from children without binocular anomalies. Data were collected using both VR-Phore and Synoptophore techniques to assess and compare visual function within this group. A comprehensive questionnaire was administered, covering demographic and health-related information, including general demographics, refractive error assessment, history of any head or eye conditions, experiences of ocular dryness or wetness, average screen time, and levels of outdoor physical activity. Additionally, the Ishihara color test was conducted to screen for color blindness. This approach aimed to provide a thorough understanding of visual health indicators and behaviors in typically developing children without binocular anomalies.
 
-The VRHMD is placed gently on the patient's head while they are seated, with the straps tightened if needed. A few sample slides are shown, and the child is asked:
 
-\begin{itemize}
-\item Do you see images?
-\item Are they near the center or away?
-\item Close one eye and describe the image (repeat with the other eye).
-\item Is the display too bright?
-\item Try using the controllers.
-\end{itemize}
+\subsection{Sarojni Devi Eye Hospital (Hyderabad)}
+Data collection was conducted at an eye clinic specializing in children with diagnosed binocular anomalies. During this phase, VR-Phore was utilized to gather data from these patients, which was subsequently compared to previously collected data from children without binocular anomalies. This comparative analysis facilitated the identification and examination of differences in visual function and binocular interactions between children with and without such anomalies.
 
-The clinician enters the patient's details on the controller (or possibly the display mobile). The clinician can select whether the left or right eye image is fixed, or if both images will move. The SMP/Fusion and Stereopsis sets are shown in a predefined or selectable order (Version 2 of the application allows the clinician to choose the order). Position and angle data from the calibrated center are logged, with a 6-second gap between slides.
+For the patient cohort, a comprehensive questionnaire was developed to capture all relevant factors influencing visual health and condition. This expanded survey incorporated all elements from the questionnaire administered to children without anomalies, covering general demographics, refractive errors, history of head or eye conditions, experiences of eye dryness or wetness, average screen time, and outdoor activity levels. Additionally, it included specific questions on family history, such as inherited eye conditions, and birth history details, including birth weight and complications. Further sections addressed ongoing treatments, such as eye drops or patching, recent test results (including Visual Acuity and Hirschberg tests), and any diagnostic information recorded during their hospital visit. This detailed approach ensured that a comprehensive range of factors was considered, enabling a thorough assessment of visual health and binocular anomalies within the patient population.
+As 2 separate sections, we present the results and analysis from two experimental testing. The first is from the clinical cohort and the second is the in-lab validation using prisms to induce fixed deviation or strabismus. 
 
-\subsection{Additional Control Options}
+\section{Results}
+The data was extracted from the VR-Phore system. Outlier data points for each participant were identified and removed based on the criterion of being more than twice the standard deviation from the mean. Subsequently, the averages for each category—fusion, simultaneous perception, and stereopsis—were calculated and plotted against each other in the following figure.
 
-The clinician can select the axis of movement, such as moving linearly (one-axis) or in a plane (two-axis). The patient can rotate the image perpendicularly on one axis, enabling measurement of torsional values. For example, swiping left or right moves the image linearly, while upward and downward swipes rotate it clockwise and counterclockwise, respectively. Convergence ranges can also be measured, including degrees to which the participant can achieve fusion.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.4\textwidth]{school_patient_scatterplot.png}
+  \caption{Scatter plot for Children with strabismus vs Children with no binocular anomaly}
+  \label{fig:example}
+\end{figure}
 
-\section{Post-Task}
+It is evident that there is a significant difference between the values of children with and without strabismus. Based on the data, approximate thresholds can be defined for children without any anomalies: fusion values below 7.5, stereopsis values below 7, and simultaneous perception values below 7. Exceeding these limits increases the likelihood that the child may have strabismus.
 
-Once the deck is complete, the HMD and controller are gently removed from the patient. The clinician can check a CSV file, which displays the angle values for each slide set/test.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.5\textwidth]{school_patient_barplot.png}
+  \caption{Bar plot of averages for for Children with strabismus vs Children with no binocular anomaly}
+  \label{fig:example}
+\end{figure}
+The above figure clearly demonstrates a significant difference in the average values between children with strabismus and those without.
+
+\section{Conclusion}
+We have determined that our device performs effectively, demonstrating functionality comparable to a synoptophore. Furthermore, our findings reveal a significant distinction between normal children and children with binocular anomalies when using our device for assessment and diagnosis. This highlights the potential of our device as a valuable tool in clinical settings for identifying and distinguishing binocular anomalies among pediatric populations.
+
+\section{Discussion}
+
+\section{Controlled study by prism-induced strabismus}
+
+This section presents the deviation measurements obtained by inducing strabismus in individuals with normal binocular vision and compares the results with and without prism, using both the Synoptophore and VR-Phore.
+
+\subsection{Synoptophore Data}
+
+Data collection using the Synoptophore was conducted in three distinct conditions: first, with both slides positioned at 0 diopters (D) for the left and right eyes; second, with the slides set at +30 D; and third, with the slides adjusted to -30 D. Within each of these conditions, three different methods were employed to manipulate the device: the first method allowed both the left and right handles of the Synoptophore to move freely; the second method permitted only the left handle to move; and the third method restricted movement to the right handle only.
+
+Each data point was collected twice to ensure accuracy and reliability of the measurements. The procedure was also repeated under different prism conditions: with no prism deviation, with a 12 diopter Base-Out prism in one eye, and with a 12 diopter Base-in prism in the other eye. To mitigate any potential learning effects among participants, the order of conditions was randomized for each individual. This methodological approach aimed to produce robust and valid data regarding binocular vision responses across varying optical settings.
+
+\subsection{VR-Phore Data}
+
+Data collection using VR-Phore required participants to complete three trials. The first trial involved assessing visual function with no prism induced, serving as the baseline measurement. The second trial involved inducing a +12 diopter base-in prism in one eye, while the third trial involved a +12 diopter base-out prism in the other eye. This design aimed to evaluate the effects of prism-induced deviations on binocular vision, allowing for a comprehensive analysis of visual responses under varying optical conditions. Each trial was conducted in a controlled manner to ensure consistency and reliability in the data obtained from the participants.
+
+\subsection{Results}
+
+\subsection{Discussion}
+
+\begin{thebibliography}{99}
+
+\bibitem{Pickwell's Binocular Vision Anomalies}
+Evans, B. J. (2021). Pickwell's binocular vision anomalies. Elsevier Health Sciences.
+
+\bibitem{Test for detecting Strabismus}
+Hull S, Tailor V, Balduzzi S, Rahi J, Schmucker C, Virgili G, Dahlmann-Noor A. Tests for detecting strabismus in children aged 1 to 6 years in the community. Cochrane Database Syst Rev. 2017 Nov 6;11(11): CD011221. doi: 10.1002/14651858.CD011221.pub2. PMID: 29105728; PMCID: PMC6486041.
+
+\bibitem{Technique for Measuring Strabismus with Synoptophore}
+Pateras, Evangelos. (2020). Technique for Measuring Strabismus with Synoptophore -Review. 6-12. 
+
+\bibitem{strabismus children}
+Schuster, A.K., Elflein, H.M., Pokora, R. et al. Health-related quality of life and mental health in children and adolescents with strabismus – results of the representative population-based survey KiGGS. Health Qual Life Outcomes 17, 81 (2019). https://doi.org/10.1186/s12955-019-1144-7
+
+
+\bibitem{Pediatric}
+Huang, T. L., \& Pineles, S. L. (2023). Strabismus and Pediatric Psychiatric Illness: A Literature Review. Children, 10(4), 607. https://doi.org/10.3390/children10040607
+
+\bibitem{1}
+João Dallyson Sousa de Almeida, Aristófanes Corrêa Silva, Anselmo Cardoso de Paiva, Jorge Antonio Meireles Teixeira,
+Computational methodology for automatic detection of strabismus in digital images through Hirschberg test,
+Computers in Biology and Medicine,
+Volume 42, Issue 1,
+2012,
+Pages 135-146,
+ISSN 0010-4825,
+https://doi.org/10.1016/j.compbiomed.2011.11.001.
+(https://www.sciencedirect.com/science/article/pii/S0010482511002149)
+
+\bibitem{2}
+Bindiganavale M, Buickians D, Lambert SR, Bodnar ZM, Moss HE. Development and Preliminary Validation of a Virtual Reality Approach for Measurement of Torsional Strabismus. J Neuroophthalmol. 2022 Mar 1;42(1):e248-e253. doi: 10.1097/WNO.0000000000001451. Epub 2021 Nov 11. PMID: 34812760; PMCID: PMC9064886.
+
+\bibitem{3}
+H. Bicas, Estrabismos: da teoria a pra  ´tica, dos conceitos as suas operaciona-
+lizac- oes, Arq. Bras. Oftalmol. 72 (5) (2009) 585–615.
+
+
+\bibitem{4}
+Krimsky E. Method for objective investigation of strabismus.
+Journal of the American Medical Association 1951;145(8):539-44.
+
+\bibitem{5}
+Yang HK, Han SB, Hwang JM, Kim YJ, Jeong CB, Kim KG.
+Assessment of binocular alignment using the three-dimensional
+Strabismus Photo Analyzer. British Journal of Ophthalmology
+2012;96(1):78-82.
+
+\bibitem{6}
+Lee JA, Lee HY. New method for measurement of strabismic angle using corneal reflex and photograph. J Korean
+Ophthalmol Soc 2002;43:1988-92.
+
+\bibitem{7}
+Choi RY, Kushner BJ. The accuracy of experienced strabismologists using the Hirschberg and Krimsky tests. Ophthalmology 1998;105:1301-6.
+
+\bibitem{8}
+Hull S, Tailor V, Balduzzi S, Rahi J, Schmucker C, Virgili G, Dahlmann-Noor A.
+Tests for detecting strabismus in children aged 1 to 6 years in the community.
+Cochrane Database of Systematic Reviews 2017, Issue 11. Art. No.: CD011221.
+DOI: 10.1002/14651858.CD011221.pub2.
+
+\bibitem{9}
+Bindiganavale M, Buickians D, Lambert SR, Bodnar ZM, Moss HE. Development and Preliminary Validation of a Virtual Reality Approach for Measurement of Torsional Strabismus. J Neuroophthalmol. 2022 Mar 1;42(1):e248-e253. doi: 10.1097/WNO.0000000000001451. Epub 2021 Nov 11. PMID: 34812760; PMCID: PMC9064886.
+
+\bibitem{10}
+Brückner R. Practical use of the illumination test in the early
+diagnosis of strabismus. Ophthalmologica 1965;149(6):497-503
+
+\bibitem{11}
+GriIin JR, Cotter SA. The Bruckner test: evaluation of clinical
+usefulness. American Journal of Optometry and Physiological
+Optics 1986;63(12):957-61.
+
+\bibitem{12}
+GriIin JR, McLin LN, Schor CM. Photographic method for
+Bruckner and Hirschberg testing. Optometry and Vision Science
+1989;66(7):474-9.
+
+\bibitem{13}
+Irsch K. Optical Issues in Measuring Strabismus. Middle East Afr J Ophthalmol. 2015 Jul-Sep;22(3):265-70. doi: 10.4103/0974-9233.159691. PMID: 26180462; PMCID: PMC4502167.
+
+\bibitem{14}
+Joo KS, Koo H, Moon NJ. Measurement of strabismic angle using the distance Krimsky test. Korean J Ophthalmol. 2013 Aug;27(4):276-81. doi: 10.3341/kjo.2013.27.4.276. Epub 2013 Jul 18. PMID: 23908574; PMCID: PMC3730070.
+
+
+
+\bibitem{15}
+Grudzi ´nska, E.; Durajczyk,
+M.; Grudzi ´nski, M.; Marchewka, Ł.;
+Modrzejewska, M. Usefulness
+Assessment of Automated Strabismus
+Angle Measurements Using
+Innovative Strabiscan Device. J. Clin.
+Med. 2024, 13, 1067. https://doi.org/
+10.3390/jcm13041067
+
+\bibitem{16}
+Yeh, P.H.; Liu, C.H.; Sun, M.H.; Chi, S.C.; Hwang, Y.S. To Measure the Amount of Ocular Deviation in Strabismus Patients with
+an Eye-Tracking Virtual Reality Headset. BMC Ophthalmol. 2021, 21, 246
+
+\bibitem{17}
+Moon, H.S.; Yoon, H.J.; Park, S.W.; Kim, C.Y.; Jeong, M.S.; Lim, S.M.; Ryu, J.H.; Heo, H. Usefulness of Virtual Reality-Based
+Training to Diagnose Strabismus. Sci. Rep. 2021, 11, 5891.
+
+
+\bibitem{18}
+Bullock K, Bredemeyer HG. Orthoptics:
+Theory and Practice. St Louis: Mosby;
+1968.
+
+\bibitem{19}
+Chia A, Roy L, Seenyen L. Comitant
+horizontal strabismus: An Asian
+perspective. The British Journal of
+Ophthalmology. 2007;91(10):1337–1340.
+
+\bibitem{20}
+Parks MM. Ocular Motility and Strabismus.
+New York: Harper Row; 1975.
+
+\bibitem{21}
+Almeida JD, Silva AC, Paiva AC, Teixeira JA. Computational methodology for automatic detection of strabismus in digital images through Hirschberg test. Comput Biol Med. 2012 Jan;42(1):135-46. doi: 10.1016/j.compbiomed.2011.11.001. Epub 2011 Nov 26. PMID: 22119221.
+
+\bibitem{Levi}
+Levi, D. M. (2023). Applications and implications for extended reality to improve binocular vision and stereopsis. Journal of Vision, 23(1):14, 1–14, https://doi.org/10.1167/jov.23.1.14.
+
+\bibitem{vrhealth}
+G. Riva, Virtual reality for health care: the status of research, Cyberpsychol. Behav. 5 (June(3)) (2002) 219–225 https://doi.org/10.1089/109493102760147213.
+
+\bibitem{vrphore}
+S. S. Vuddagiri, K. Vemuri, M. Shivaram and R. Bhardwaj, "VR-Phore: A Novel Virtual Reality system for Diagnosis of Binocular Vision," 2021 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW), Lisbon, Portugal, 2021, pp. 460-461, doi: 10.1109/VRW52623.2021.00112. keywords: {Three-dimensional displays;Head-mounted displays;Instruments;Conferences;Virtual reality;Resists;User interfaces;Virtual Reality;Synoptophore;Binocular Vision;Health-clinicalDiagnosis},
+
+\bibitem{synslide}
+H.-S. UK. Synoptophore slide catalogue. Synoptophore Instructions,
+2017
+
+
+\end{thebibliography}
+
+
 \end{document}
